@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+gem "cuba"
+gem "mote"
+gem "cuba-contrib"
+gem "rack-protection"
+gem "shield"
+gem "ohm"
+gem "ohm-contrib"
+gem "puma"
+gem "shotgun"
