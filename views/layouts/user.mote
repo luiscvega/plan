@@ -26,10 +26,10 @@
 
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/trips/new">Create Trip</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>

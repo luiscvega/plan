@@ -10,6 +10,8 @@ class User < Ohm::Model
   attribute :lastname
   attribute :crypted_password
 
+  collection :invites, :Invite
+
   def self.fetch(email)
     with(:email, email)
   end

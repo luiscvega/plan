@@ -1,0 +1,13 @@
+<div class="row">
+  % trip.invites.each do |invite|
+    <div class="span4">
+      <div class="media">
+        <img class="media-object img-polaroid img-rounded pull-left" src="http://placehold.it/64x64">
+        <div class="media-body">
+          <h4 class="media-heading">{{ invite.user.full_name }}</h4>
+          <p>Hello!</p>
+        </div>
+      </div>
+    </div>
+  % end
+</div>
