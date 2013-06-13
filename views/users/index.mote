@@ -1,1 +1,7 @@
 <h1>Welcome {{ this.current_user.full_name }}!</h1>
+
+<ul>
+  % this.current_user.invites.each do |invite|
+    <li><a href="/trips/{{ invite.trip.id }}">{{ invite.trip.name }}</a></li>
+  % end
+</ul>

@@ -3,7 +3,7 @@ class Invite < Ohm::Model
   include Ohm::Callbacks
 
   attribute :status
-  attribute :thought
+  attribute :thoughts
 
   reference :trip, :Trip
   reference :user, :User
