@@ -7,6 +7,9 @@
     <!-- Bootstrap stylesheets -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
+    <!-- Flat UI stylesheets -->
+    <link href="/css/flat-ui.css" rel="stylesheet" media="screen">
+
     <!-- Font Awesome stylesheets -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
@@ -15,16 +18,18 @@
 
   </head>
   <body>
-    <div class="navbar navbar-static-top">
+
+    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">Plan</a>
+          <a class="brand" href="/">Tripkada</a>
 
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/">Link</a></li>
-            <li><a href="/">Link</a></li>
-          </ul>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
