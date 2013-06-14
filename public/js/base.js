@@ -1,7 +1,6 @@
 $(function() {
-  var $container = $("#thoughts");
-
-  $container.masonry({
-    itemSelector: ".well"
+  $("#thoughts").masonry({
+    itemSelector: ".item",
+    gutter: 10
   });
 });
