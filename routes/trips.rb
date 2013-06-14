@@ -5,14 +5,15 @@ module Routes
         break unless trip = Trip[id]
 
         with trip_id: id do
-          on post, "status", param("invite") do |dict|
-            current_invite.update(dict)
 
-            res.redirect "/trips/%s" % current_invite.trip.id, "303"
+          on "invites" do
+            run Routes::Invites
           end
 
           on root do
-            user_render "trips/index", trip: trip
+            message = CGI.escape("Welcome to Tripkada! Plan your trips here with us and get ready to go on the adventure of your life!")
+
+            user_render "trips/index", trip: trip, message: message
           end
         end
       end

@@ -2,10 +2,6 @@ module Routes
   class Users < Cuba
     define do
 
-      on "invites" do
-        run Routes::Invites
-      end
-
       on "trips" do
         run Routes::Trips
       end

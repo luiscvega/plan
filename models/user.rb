@@ -6,8 +6,8 @@ class User < Ohm::Model
   unique :email
 
   attribute :email
-  attribute :firstname
-  attribute :lastname
+  attribute :first_name
+  attribute :last_name
   attribute :crypted_password
   attribute :fb_id
 
@@ -18,7 +18,7 @@ class User < Ohm::Model
   end
 
   def full_name
-    [firstname, lastname].join(" ")
+    [first_name, last_name].join(" ")
   end
 
   def fb_linked?

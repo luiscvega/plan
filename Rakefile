@@ -4,17 +4,17 @@ task :seed do
 
   Ohm.flush
 
-  user1 = User.create(firstname: "Luis", lastname: "Vega", fb_id: "1580575903",
+  user1 = User.create(first_name: "Luis", last_name: "Vega", fb_id: "1580575903",
                 email: "luis@gmail.com", password: "pass1234")
-  user2 = User.create(firstname: "Macky", lastname: "Tamayo", fb_id: "1454658543",
+  user2 = User.create(first_name: "Macky", last_name: "Tamayo", fb_id: "1454658543",
                 email: "macky@gmail.com", password: "pass1234")
-  user3 = User.create(firstname: "Jaq", lastname: "Uy", fb_id: "1610290460",
+  user3 = User.create(first_name: "Jaq", last_name: "Uy", fb_id: "1610290460",
                 email: "jaq@gmail.com", password: "pass1234")
-  user4 = User.create(firstname: "Maureen", lastname: "Padilla", fb_id: "573365192",
+  user4 = User.create(first_name: "Maureen", last_name: "Padilla", fb_id: "573365192",
                 email: "maureen@gmail.com", password: "pass1234")
-  user5 = User.create(firstname: "Keslie", lastname: "Dellosa", fb_id: "515468046",
+  user5 = User.create(first_name: "Keslie", last_name: "Dellosa", fb_id: "515468046",
                 email: "keslie@gmail.com", password: "pass1234")
-  user6 = User.create(firstname: "Karla", lastname: "Flores", fb_id: "602041929",
+  user6 = User.create(first_name: "Karla", last_name: "Flores", fb_id: "602041929",
                 email: "karla@gmail.com", password: "pass1234")
 
   trip = Trip.create(name: "LaBora Day", destination: "Boracay",

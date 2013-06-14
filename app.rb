@@ -1,3 +1,4 @@
+require_relative "config/settings"
 require_relative "shotgun"
 
 Cuba.plugin Cuba::Mote

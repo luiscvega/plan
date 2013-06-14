@@ -16,14 +16,24 @@ a { text-decoration: none; }
   width: 306px;
 }
 
+#current-invite .badge.going, img.going { background-color: #2ecc71; }
+#current-invite .badge.pending, img.pending { background-color: #f1c40f; }
+#current-invite .badge.not-going, img.not-going { background-color: #e74c3c; }
+
+#current-invite .badge h6 { margin: 0px; }
+#current-invite .badge { margin-bottom: 5px; }
+
 #thoughts .item {
   width: 306px;
   margin-bottom: 10px;
 }
 
-#thoughts img.going { background-color: #2ecc71; }
-#thoughts img.not-going { background-color: #e74c3c; }
-#thoughts img.pending { background-color: #f1c40f; }
+#thoughts .badge.going, img.going { background-color: #2ecc71; }
+#thoughts .badge.pending, img.pending { background-color: #f1c40f; }
+#thoughts .badge.not-going, img.not-going { background-color: #e74c3c; }
+
+#thoughts .badge h6 { margin: 0px; }
+#thoughts .badge { margin-bottom: 5px; }
 
 #thoughts .well {
   margin-bottom: 0px;

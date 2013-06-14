@@ -13,4 +13,8 @@ class Trip < Ohm::Model
     invites.first.user
   end
 
+  def has_invites?
+    invites.count > 1
+  end
+
 end

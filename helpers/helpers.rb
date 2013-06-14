@@ -29,11 +29,11 @@ module Helpers
   def status_sign(status)
     case status
     when Invite::GOING
-     '<i class="icon-large icon-ok-sign" style="color: #2ecc71;"></i>'
-    #when Invite::PENDING
-     #'<i class="icon-large icon-question-sign" style="color: #f1c40f;"></i>'
+     '<i class="icon-ok-sign"></i>'
+    when Invite::PENDING
+     '<i class="icon-question-sign"></i>'
     when Invite::NOT_GOING
-     '<i class="icon-large icon-remove-sign" style="color: #e74c3c;"></i>'
+     '<i class="icon-remove-sign"></i>'
     end
   end
 end

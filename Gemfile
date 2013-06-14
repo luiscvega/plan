@@ -11,3 +11,5 @@ gem "puma"
 gem "shotgun"
 gem "faker"
 gem "pry"
+gem "cutest"
+gem 'rack-test'
