@@ -14,9 +14,11 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Tripkada stylesheets -->
-    <link href="/css/main.less" rel="stylesheet/less" type="text/css" />
+    <!--<link href="/css/main.less" rel="stylesheet/less" type="text/css" />-->
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
 
   </head>
+
   <body>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
@@ -41,7 +43,8 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/masonry.js"></script>
-    <script src="/js/less.js"></script>
+    <script src="/js/images-loaded.js"></script>
+    <!--<script src="/js/less.js"></script>-->
     <script src="/js/base.js"></script>
   </body>
 </html>

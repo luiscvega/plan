@@ -1,0 +1,46 @@
+body { padding-top: 53px; }
+
+a { text-decoration: none; }
+
+#summary {
+  margin-top: 20px;
+}
+
+#summary .well {
+  margin: auto;
+  width: 600px;
+}
+
+#thoughts .item {
+  width: 306px;
+  margin-bottom: 10px;
+}
+
+#thoughts img.going { background-color: #2ecc71; }
+#thoughts img.not-going { background-color: #e74c3c; }
+#thoughts img.pending { background-color: #f1c40f; }
+
+#thoughts .well {
+  margin-bottom: 0px;
+}
+
+.thought-bubble {
+  background-color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+
+}
+
+.thought-bubble p {
+  margin: 0px;
+  word-wrap: break-word;
+}
+
+.thought-bubble.going {
+  background-color: #16a085;
+}
+
+.pending-options {
+  text-align: center;
+}
