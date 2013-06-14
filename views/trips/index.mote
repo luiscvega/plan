@@ -19,6 +19,35 @@
 
 <hr />
 
+<div id="current-invite">
+  <h1 class="text-center">You</h1>
+  <div class="well well-small">
+    <div class="media">
+      <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
+           src="{{ this.current_invite.user.img_url }}">
+      <div class="media-body">
+        <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+        % if this.current_invite.status == Invite::GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::NOT_GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::PENDING
+          <div class="pending-options">
+            <a href="#thoughts-modal" data-toggle="modal"><i class="icon-question-sign icon-3x"></i></a>
+          </div>
+        % end
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h1 class="text-center">Everyone</h1>
 <div id="thoughts">
   % trip.invites.to_a.shuffle.each do |invite|
   <div class="item">
@@ -33,10 +62,12 @@
               <p>{{ invite.thoughts }}</p>
             </div>
           % elsif invite.status == Invite::NOT_GOING
+            <div class="thought-bubble">
+              <p>{{ invite.thoughts }}</p>
+            </div>
           % elsif invite.status == Invite::PENDING
             <div class="pending-options">
-              <a href="#"><i class="icon-ok-circle icon-3x"></i></a>
-              <a href="#"><i class="icon-remove-circle icon-3x"></i></a>
+              <i class="icon-question-sign icon-3x"></i>
             </div>
           % end
         </div>
@@ -44,4 +75,27 @@
     </div>
   </div>
   % end
+</div>
+
+<div id="thoughts-modal" class="modal hide fade">
+  <form action="/trips/{{ trip.id }}/status" method="POST">
+    <div class="modal-body">
+      <div class="well well-small">
+        <div class="media">
+          <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
+               src="{{ this.current_invite.user.img_url }}">
+          <div class="media-body">
+            <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+            <textarea name="invite[thoughts]" placeholder="What're your thoughts?"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="text-center">
+        <button class="btn btn-danger" type="submit" name="invite[status]" value="not going">I can't go!</button>
+        <button class="btn btn-success" type="submit" name="invite[status]" value="going">I'm going!</button>
+      </div>
+    </div>
+  </form>
 </div>

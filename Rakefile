@@ -21,7 +21,7 @@ task :seed do
                      start_date: "2014-05-01", end_date: "2014-05-03")
 
   Invite.create(trip: trip, user: user1)
-  Invite.create(trip: trip, user: user2, thoughts: Faker::Lorem.paragraph(rand(1..5))).update(status: "not going")
+  Invite.create(trip: trip, user: user2)
   Invite.create(trip: trip, user: user3, thoughts: Faker::Lorem.paragraph(rand(1..5))).update(status: "going")
   Invite.create(trip: trip, user: user4, thoughts: Faker::Lorem.paragraph(rand(1..5))).update(status: "not going")
   Invite.create(trip: trip, user: user5, thoughts: Faker::Lorem.paragraph(rand(1..5))).update(status: "going")

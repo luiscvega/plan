@@ -11,6 +11,11 @@ a { text-decoration: none; }
   width: 600px;
 }
 
+#current-invite {
+  margin: auto;
+  width: 306px;
+}
+
 #thoughts .item {
   width: 306px;
   margin-bottom: 10px;
@@ -43,4 +48,13 @@ a { text-decoration: none; }
 
 .pending-options {
   text-align: center;
+}
+
+.pending-options i {
+  color: #f1c40f;
+}
+
+#thoughts-modal .well {
+  width: 306px;
+  margin: 0 auto;
 }

@@ -2,6 +2,7 @@ require_relative "shotgun"
 
 Cuba.plugin Cuba::Mote
 Cuba.plugin Cuba::TextHelpers
+Cuba.plugin Cuba::With
 Cuba.plugin Shield::Helpers
 
 # Require all application files.

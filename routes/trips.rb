@@ -4,7 +4,17 @@ module Routes
       on ":id" do |id|
         break unless trip = Trip[id]
 
-        user_render "trips/index", trip: trip
+        with trip_id: id do
+          on post, "status", param("invite") do |dict|
+            current_invite.update(dict)
+
+            res.redirect "/trips/%s" % current_invite.trip.id, "303"
+          end
+
+          on root do
+            user_render "trips/index", trip: trip
+          end
+        end
       end
 
       on post, param("trip") do |dict|
