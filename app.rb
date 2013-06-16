@@ -33,10 +33,6 @@ Cuba.plugin Helpers
 Cuba.define do
   persist_session!
 
-  on authenticated(User) do
-    run Routes::Users
-  end
-
   on "register" do
     run Routes::Register
   end
@@ -48,6 +44,10 @@ Cuba.define do
       res.status = 400
       guest_render("login")
     end
+  end
+
+  on authenticated(User) do
+    run Routes::Users
   end
 
   on root do

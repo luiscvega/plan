@@ -15,7 +15,7 @@ class Trip < Ohm::Model
   end
 
   def has_invites?
-    invites.count > 1
+    invites.count > 1 || pending_invites.count > 0
   end
 
   def thoughts

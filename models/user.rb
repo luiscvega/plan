@@ -10,6 +10,7 @@ class User < Ohm::Model
   attribute :last_name
   attribute :crypted_password
   attribute :fb_id
+  attribute :fb_access_token
 
   collection :invites, :Invite
 

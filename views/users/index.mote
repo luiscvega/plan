@@ -5,3 +5,12 @@
     <li><a href="/trips/{{ invite.trip.id }}">{{ invite.trip.name }}</a></li>
   % end
 </ul>
+
+% if this.current_user.fb_linked?
+  <a href="#" class="btn disabled">Already Linked</a>
+% else
+  <a href="https://graph.facebook.com/oauth/authorize?client_id=323709887736266&redirect_uri={{ Settings::HOST }}/register/facebook/&scope=publish_stream,email"
+    class="btn">Click here to link
+  </a>
+% end
+

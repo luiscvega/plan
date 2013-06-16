@@ -18,6 +18,8 @@ task :seed do
                 email: "karla@gmail.com", password: "pass1234")
   user7 = User.create(first_name: "Gian", last_name: "Javellana", fb_id: "582469198",
                 email: "gian@gmail.com", password: "pass1234")
+  user8 = User.create(first_name: "Jackie", last_name: "Vega",
+                email: "jackie@gmail.com", password: "pass1234")
 
   trip = Trip.create(name: "LaBora Day", destination: "Boracay",
                      start_date: "2014-05-01", end_date: "2014-05-03")

@@ -18,4 +18,10 @@ class PendingInvite < Ohm::Model
   def img_url
     "http://graph.facebook.com/%s/picture" % fb_id
   end
+
+  def register(user)
+    Invite.create(user: user, trip: trip)
+
+    delete
+  end
 end

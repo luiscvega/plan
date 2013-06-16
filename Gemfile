@@ -12,4 +12,5 @@ gem "shotgun"
 gem "faker"
 gem "pry"
 gem "cutest"
-gem 'rack-test'
+gem "rack-test"
+gem "koala"
