@@ -14,7 +14,7 @@ module Routes
 
         fb_ids.each do |fb_id|
           if user = User.find(fb_id: fb_id).first
-            invite = Invite.create(user: user, trip: trip)
+            invite = Invite.find_or_create(user: user, trip: trip)
           else
             json = JSON.parse(Net::HTTP.get(URI("http://graph.facebook.com/#{fb_id}")))
 

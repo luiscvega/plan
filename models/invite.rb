@@ -24,6 +24,14 @@ class Invite < Ohm::Model
     user.img_url
   end
 
+  def self.find_or_create(user, trip)
+    if invite = Invite.find(user_id: user.id, trip_id: trip.id).first
+      return invite
+    else
+      return create(user: user, trip: trip)
+    end
+  end
+
 private
 
   def before_create

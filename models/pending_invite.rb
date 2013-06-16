@@ -8,7 +8,7 @@ class PendingInvite < Ohm::Model
   index :fb_id
 
   def self.find_or_create(args)
-    if pending_invite = PendingInvite.find(fb_id: args[:fb_id]).first
+    if pending_invite = find(fb_id: args[:fb_id]).first
       return pending_invite
     else
       return create(args)
