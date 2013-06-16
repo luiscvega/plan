@@ -45,6 +45,6 @@ Cuba.define do
   end
 
   on root do
-    render "index"
+    guest_render "index"
   end
 end
