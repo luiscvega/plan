@@ -1,10 +1,6 @@
 module Routes
   class Register < Cuba
     define do
-      on "facebook" do
-        raise "hey".inspect
-      end
-
       on "facebook", param("code") do |code|
         #If user clicks "Login with Facebook", they will ALWAYS be redirected here!
 
