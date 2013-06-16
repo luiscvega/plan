@@ -16,8 +16,8 @@
 
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a href="/">Home</a></li>
               <li><a href="/trips/new">Create Trip</a></li>
+              <li><a href="/">{{ this.current_user.full_name }}</a></li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div>
