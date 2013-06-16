@@ -8,6 +8,7 @@ class Trip < Ohm::Model
   attribute :end_date, Type::Date
 
   collection :invites, :Invite
+  collection :pending_invites, :PendingInvite
 
   def creator
     invites.first.user

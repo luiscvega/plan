@@ -17,6 +17,28 @@
   </div>
 </div>
 
+<br />
+
+<div id="invite-via-facebook">
+  <a class="btn"
+    href="https://www.facebook.com/dialog/apprequests?
+    app_id={{ Settings::FB_APP_ID }}&
+    message={{ message }}&
+    redirect_uri=http://tripkada.com/trips/{{ trip.id }}/invites"
+    {{ "disabled" unless this.current_user.fb_linked? }}>
+    <i class="icon-facebook-sign"></i>
+    Invite Friends via Facebook
+  </a>
+
+  % unless this.current_user.fb_linked?
+    <a href="https://graph.facebook.com/oauth/authorize?client_id=323709887736266&redirect_uri={{ Settings::HOST }}/register/facebook/&scope=publish_stream,email"
+      class="btn">
+      <i class="icon-facebook-sign"></i>
+      Log In With Facebook
+    </a>
+  % end
+</div>
+
 <hr />
 
 % if trip.has_invites?

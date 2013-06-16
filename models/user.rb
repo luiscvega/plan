@@ -13,6 +13,8 @@ class User < Ohm::Model
 
   collection :invites, :Invite
 
+  index :fb_id
+
   def self.fetch(email)
     with(:email, email)
   end

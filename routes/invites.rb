@@ -10,31 +10,24 @@ module Routes
       end
 
       on get, param("to") do |dict|
-        ids = dict.values
-        invites = []
+        fb_ids = dict.values
 
-        ids.each do |id|
-          # SCENARIO 1: Invited user DOES NOT have a Tripkada account
-          json = JSON.parse(Net::HTTP.get(URI("http://graph.facebook.com/#{id}")))
+        fb_ids.each do |fb_id|
+          if user = User.find(fb_id: fb_id).first
+            invite = Invite.create(user: user, trip: trip)
+          else
+            json = JSON.parse(Net::HTTP.get(URI("http://graph.facebook.com/#{fb_id}")))
 
-          # SCENARIO 1.A: Invited user IS NOT a PendingUser
-          unless pending_user = PendingUser.find(fb_id: id).first
-            pending_user = PendingUser.create(
+            pending_invite = PendingInvite.find_or_create(
+              fb_id: fb_id,
+              trip: trip,
               first_name: json["first_name"],
-              last_name: json["last_name"],
-              fb_id: json["id"]
-            )
-          end
-
-          unless pending_invite = PendingInvite.find(pending_user_id: pending_user.id, trip_id: trip.id).first
-            pending_invite = PendingInvite.create(
-              pending_user: pending_user,
-              trip: trip
+              last_name: json["last_name"]
             )
           end
         end
 
-        res.redirect "/trips/%s" % trip.id
+        res.redirect "/trips/%s" % trip.id, "303"
       end
 
     end
