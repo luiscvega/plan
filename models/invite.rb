@@ -16,6 +16,14 @@ class Invite < Ohm::Model
   def not_going?; status == NOT_GOING; end
   def pending?; status == PENDING; end
 
+  def full_name
+    user.full_name
+  end
+
+  def img_url
+    user.img_url
+  end
+
 private
 
   def before_create

@@ -17,4 +17,16 @@ class Trip < Ohm::Model
     invites.count > 1
   end
 
+  def thoughts
+    invite_thoughts = invites.map do |invite|
+      Thought.new(invite)
+    end
+
+    pending_invite_thoughts = pending_invites.map do |pending_invite|
+      Thought.new(pending_invite)
+    end
+
+    [*invite_thoughts, *pending_invite_thoughts]
+  end
+
 end
