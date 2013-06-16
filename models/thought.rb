@@ -9,7 +9,7 @@ class Thought
 
   def status
     if pending_invite?
-      "pending_invite"
+      "pending"
     else
       @invite_obj.status
     end

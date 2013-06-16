@@ -126,11 +126,9 @@
 %#        </div>
       </div>
 
-      <div class="modal-footer">
-        <div class="text-center">
-          <button class="btn btn-danger" type="submit" name="invite[status]" value="not going">I can't go!</button>
-          <button class="btn btn-success" type="submit" name="invite[status]" value="going">I'm going!</button>
-        </div>
+      <div class="text-center">
+        <button class="btn btn-danger" type="submit" name="invite[status]" value="not going">I can't go!</button>
+        <button class="btn btn-success" type="submit" name="invite[status]" value="going">I'm going!</button>
       </div>
 
     </form>
