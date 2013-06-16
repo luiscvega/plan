@@ -1,0 +1,40 @@
+<h1>Sign Up</h1>
+<form action="/register/signup" method="POST"
+  accept-charset="utf-8">
+  <fieldset>
+    <div class="control-group">
+      <div class="controls">
+        <input type="text" name="user[first_name]" id="user_first_name"
+          placeholder="First Name" value="{{ service.first_name }}">
+      </div>
+    </div>
+    <div class="control-group">
+      <!--<label class="control-label" for="user_last_name">Last Name</label> -->
+      <div class="controls">
+        <input type="text" name="user[last_name]" id="user_last_name"
+          placeholder="Last Name" value="{{ service.last_name }}">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="text" name="user[email]" id="user_email"
+          placeholder="E-mail" value="{{ service.email }}">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="password" name="user[password]" id="user_password"
+          placeholder="Password">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="password" name="user[confirm_password]" id="user_confirm_password"
+          placeholder="Confirm Password">
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn">Sign Up</button>
+    </div>
+  </fieldset>
+</form>

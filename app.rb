@@ -13,6 +13,8 @@ Dir["./routes/**/*.rb"].each  { |rb| require rb }
 # Require all helper files.
 Dir["./helpers/**/*.rb"].each { |rb| require rb }
 Dir["./filters/**/*.rb"].each { |rb| require rb }
+Dir["./workflows/**/*.rb"].each { |rb| require rb }
+Dir["./lib/**/*.rb"].each { |rb| require rb }
 
 Cuba.use Rack::MethodOverride
 Cuba.use Rack::Session::Cookie,
@@ -33,6 +35,10 @@ Cuba.define do
 
   on authenticated(User) do
     run Routes::Users
+  end
+
+  on "register" do
+    run Routes::Register
   end
 
   on post, "login" do
