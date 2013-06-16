@@ -1,0 +1,12 @@
+  <!-- Bootstrap stylesheets -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  <!-- Flat UI stylesheets -->
+  <link href="/css/flat-ui.css" rel="stylesheet" media="screen">
+
+  <!-- Font Awesome stylesheets -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+  <!-- Tripkada stylesheets -->
+  <!--<link href="/css/main.less" rel="stylesheet/less" type="text/css" />-->
+  <link href="/css/main.css" rel="stylesheet" type="text/css" />
