@@ -68,3 +68,11 @@ a { text-decoration: none; }
   width: 306px;
   margin: 0 auto;
 }
+
+#thoughts-modal .modal-header h4 {
+  margin: 0;
+}
+
+#thoughts-modal textarea {
+  width: 500px;
+}
