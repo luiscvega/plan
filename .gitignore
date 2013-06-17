@@ -5,3 +5,4 @@ dump.rdb
 tmp/pids/
 tmp/sockets/
 logs/*
+env.sh
