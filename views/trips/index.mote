@@ -109,14 +109,20 @@
 </div>
 
 % if trip.has_invites?
-  <div id="filter">
-    <ul class="text-center nav nav-pills">
-      <li class="active"><a href="#everyone-pane" data-toggle="pill">Everyone</a></li>
-      <li><a href="#going-pane" data-toggle="pill">Going</a></li>
-      <li><a href="#not-going-pane" data-toggle="pill">Not Going</a></li>
-      <li><a href="#waiting-pane" data-toggle="pill">Waiting</a></li>
-    </ul>
+  <hr />
+
+  <br />
+
+  <div class="span3" id="filter">
+    <select>
+      <option value="#everyone-pane">Everyone</option>
+      <option value="#going-pane">Going</option>
+      <option value="#not-going-pane">Not Going</option>
+      <option value="#waiting-pane">Waiting</option>
+    </select>
   </div>
+
+  <div class="clearfix"></div>
 
   <div class="tab-content">
     <div class="tab-pane active" id="everyone-pane">

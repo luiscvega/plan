@@ -10,8 +10,18 @@ $(function() {
     });
   });
 
-  $("#filter a").on("show", function(e) {
-    var $container = $($(e.target).attr("href")).find(".thoughts");
+  $("#filter select").selectpicker({
+    style: 'btn-primary',
+    menuStyle: 'dropdown-inverse'
+  });
+
+  $("#filter select").change(function(e) {
+    var $id = $($(this).val());
+
+    $(".tab-content").children().removeClass("active");
+    $id.addClass("active")
+
+    var $container = $id.find(".thoughts");
 
     $container.imagesLoaded(function() {
       $container.masonry({

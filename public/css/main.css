@@ -84,15 +84,8 @@ a { text-decoration: none; }
 .brand { font-family: lobster; }
 
 #filter {
-  height: 34px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-
-#filter ul {
-  display: inline-block;
-  margin: 0px;
+  margin: auto;
+  float: none;
 }
 
 .nav-pills li.active a {
