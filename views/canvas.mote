@@ -1,0 +1,8 @@
+<div class="text-center">
+  <h1>We're glad you're here!</h1>
+  <a target="_blank" href="https://graph.facebook.com/oauth/authorize?client_id={{ Settings::FB_APP_ID }}&redirect_uri={{ Settings::HOST }}/register/facebook/&scope=publish_stream,email"
+    class="btn btn-info">
+    <i class="icon-facebook-sign"></i>
+    Log In With Facebook
+  </a>
+</div>

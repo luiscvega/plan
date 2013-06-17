@@ -3,7 +3,7 @@ module Routes
     define do
 
       on "facebook/canvas" do
-        guest_render "index"
+        guest_render "canvas"
       end
 
       #If user clicks "Login with Facebook", they will ALWAYS be redirected here!
