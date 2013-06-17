@@ -19,6 +19,10 @@
 
 <br />
 
+% unless trip.has_invites?
+  <h1 class="text-center">No invites yet.</h1>
+% end
+
 <div class="text-center">
   <a class="btn btn-info"
     href="https://www.facebook.com/dialog/apprequests?
@@ -41,38 +45,70 @@
 
 <hr />
 
-% if trip.has_invites?
-  <div id="current-invite">
-    <h1 class="text-center">You</h1>
-    <div class="well well-small">
-      <div class="media">
-        <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
-             src="{{ this.current_invite.user.img_url }}">
-        <div class="media-body">
-          <span class="label {{ this.img_color(this.current_invite.status) }}">
-            <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
-          </span>
+<div id="current-invite">
+  <h1 class="text-center">You</h1>
+  <div class="well well-small">
+    <div class="media">
+      <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
+           src="{{ this.current_invite.user.img_url }}">
+      <div class="media-body">
+        <span class="label {{ this.img_color(this.current_invite.status) }}">
+          <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+        </span>
 
-          <a href="#thoughts-modal" data-toggle="modal">Edit</a>
+        <a href="#thoughts-modal" data-toggle="modal">Edit</a>
 
-          % if this.current_invite.status == Invite::GOING
-            <div class="thought-bubble">
-              <p>{{ this.current_invite.thoughts }}</p>
-            </div>
-          % elsif this.current_invite.status == Invite::NOT_GOING
-            <div class="thought-bubble">
-              <p>{{ this.current_invite.thoughts }}</p>
-            </div>
-          % elsif this.current_invite.status == Invite::PENDING
-            <div class="pending-options">
-              <a href="#thoughts-modal" class="btn btn-block" data-toggle="modal">What do you think?</a>
-            </div>
-          % end
-        </div>
+        % if this.current_invite.status == Invite::GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::NOT_GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::PENDING
+          <div class="pending-options">
+            <a href="#thoughts-modal" class="btn btn-block" data-toggle="modal">What do you think?</a>
+          </div>
+        % end
       </div>
     </div>
   </div>
+</div>
 
+<div id="thoughts-modal" class="modal hide fade">
+  <form action="/trips/{{ trip.id }}/invites" method="POST">
+    <input type="hidden" name="_method" value="PUT" />
+
+    <div class="modal-header text-center">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>What're your thoughts?</h4>
+    </div>
+
+    <div class="modal-body">
+      <textarea name="invite[thoughts]">{{ this.current_invite.thoughts }}</textarea>
+
+%#    <div class="well well-small">
+%#      <div class="media">
+%#        <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
+%#             src="{{ this.current_invite.user.img_url }}">
+%#        <div class="media-body">
+%#          <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+%#          <textarea name="invite[thoughts]" placeholder="What're your thoughts?">{{ this.current_invite.thoughts }}</textarea>
+%#        </div>
+%#      </div>
+%#    </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-danger" type="submit" name="invite[status]" value="not going">I can't go!</button>
+      <button class="btn btn-success" type="submit" name="invite[status]" value="going">I'm going!</button>
+    </div>
+
+  </form>
+</div>
+
+% if trip.has_invites?
   <hr />
 
   <h1 class="text-center">Everyone</h1>
@@ -104,59 +140,4 @@
     </div>
     % end
   </div>
-
-  <div id="thoughts-modal" class="modal hide fade">
-    <form action="/trips/{{ trip.id }}/invites" method="POST">
-      <input type="hidden" name="_method" value="PUT" />
-
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4>What're your thoughts?</h4>
-      </div>
-
-      <div class="modal-body">
-        <textarea name="invite[thoughts]">{{ this.current_invite.thoughts }}</textarea>
-
-%#        <div class="well well-small">
-%#          <div class="media">
-%#            <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
-%#                 src="{{ this.current_invite.user.img_url }}">
-%#            <div class="media-body">
-%#              <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
-%#              <textarea name="invite[thoughts]" placeholder="What're your thoughts?">{{ this.current_invite.thoughts }}</textarea>
-%#            </div>
-%#          </div>
-%#        </div>
-      </div>
-
-      <div class="text-center">
-        <button class="btn btn-danger" type="submit" name="invite[status]" value="not going">I can't go!</button>
-        <button class="btn btn-success" type="submit" name="invite[status]" value="going">I'm going!</button>
-      </div>
-
-    </form>
-  </div>
-% else
-  <h1>No invites yet!</h1>
-
-  <div id="invite-via-facebook">
-    <a class="btn"
-      href="https://www.facebook.com/dialog/apprequests?
-      app_id={{ Settings::FB_APP_ID }}&
-      message={{ message }}&
-      redirect_uri=http://tripkada.com/trips/{{ trip.id }}/invites"
-      {{ "disabled" unless this.current_user.fb_linked? }}>
-      <i class="icon-facebook-sign"></i>
-      Invite Friends via Facebook
-    </a>
-
-    % unless this.current_user.fb_linked?
-      <a href="https://graph.facebook.com/oauth/authorize?client_id=323709887736266&redirect_uri={{ Settings::HOST }}/register/facebook/&scope=publish_stream,email"
-        class="btn">
-        <i class="icon-facebook-sign"></i>
-        Log In With Facebook
-      </a>
-    % end
-  </div>
-
 % end
