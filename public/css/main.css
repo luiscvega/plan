@@ -84,7 +84,9 @@ a { text-decoration: none; }
 .brand { font-family: lobster; }
 
 #filter {
+  height: 34px;
   text-align: center;
+  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
 
@@ -100,3 +102,5 @@ a { text-decoration: none; }
 .nav-pills li.active a:hover {
   background-color: #9b59b6;
 }
+
+hr { margin: 10px 0 0 0; }

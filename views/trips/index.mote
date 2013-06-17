@@ -43,7 +43,38 @@
   % end
 </div>
 
-<br />
+<hr />
+
+<div id="current-invite">
+  <h1 class="text-center">You</h1>
+  <div class="well well-small">
+    <div class="media">
+      <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
+           src="{{ this.current_invite.user.img_url }}">
+      <div class="media-body">
+        <span class="label {{ this.img_color(this.current_invite.status) }}">
+          <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+        </span>
+
+        <a href="#thoughts-modal" data-toggle="modal">Edit</a>
+
+        % if this.current_invite.status == Invite::GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::NOT_GOING
+          <div class="thought-bubble">
+            <p>{{ this.current_invite.thoughts }}</p>
+          </div>
+        % elsif this.current_invite.status == Invite::PENDING
+          <div class="pending-options">
+            <a href="#thoughts-modal" class="btn btn-block" data-toggle="modal">What do you think?</a>
+          </div>
+        % end
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="thoughts-modal" class="modal hide fade">
   <form action="/trips/{{ trip.id }}/invites" method="POST">
@@ -81,7 +112,6 @@
   <div id="filter">
     <ul class="text-center nav nav-pills">
       <li class="active"><a href="#everyone-pane" data-toggle="pill">Everyone</a></li>
-      <li><a href="#you-pane" data-toggle="pill">You</a></li>
       <li><a href="#going-pane" data-toggle="pill">Going</a></li>
       <li><a href="#not-going-pane" data-toggle="pill">Not Going</a></li>
       <li><a href="#waiting-pane" data-toggle="pill">Waiting</a></li>
@@ -91,40 +121,6 @@
   <div class="tab-content">
     <div class="tab-pane active" id="everyone-pane">
       {{ this.partial "trips/thoughts", thoughts: trip.thoughts }}
-    </div>
-
-    <div class="tab-pane" id="you-pane">
-      <div id="current-invite">
-        <h1 class="text-center">You</h1>
-        <div class="well well-small">
-          <div class="media">
-            <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
-                 src="{{ this.current_invite.user.img_url }}">
-            <div class="media-body">
-              <span class="label {{ this.img_color(this.current_invite.status) }}">
-                <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
-              </span>
-
-              <a href="#thoughts-modal" data-toggle="modal">Edit</a>
-
-              % if this.current_invite.status == Invite::GOING
-                <div class="thought-bubble">
-                  <p>{{ this.current_invite.thoughts }}</p>
-                </div>
-              % elsif this.current_invite.status == Invite::NOT_GOING
-                <div class="thought-bubble">
-                  <p>{{ this.current_invite.thoughts }}</p>
-                </div>
-              % elsif this.current_invite.status == Invite::PENDING
-                <div class="pending-options">
-                  <a href="#thoughts-modal" class="btn btn-block" data-toggle="modal">What do you think?</a>
-                </div>
-              % end
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <div class="tab-pane" id="going-pane">
