@@ -20,7 +20,7 @@ module Routes
 
             pending_invite = PendingInvite.find_or_create(
               fb_id: fb_id,
-              trip: trip,
+              trip_id: trip.id,
               first_name: json["first_name"],
               last_name: json["last_name"]
             )
