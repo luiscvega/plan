@@ -8,7 +8,9 @@ class PendingInvite < Ohm::Model
   index :fb_id
 
   def self.find_or_create(args)
-    if pending_invite = find(fb_id: args[:fb_id]).first
+    raise ArgumentError unless args.has_key?(:trip_id)
+
+    if pending_invite = find(fb_id: args[:fb_id], trip_id: args[:trip_id]).first
       return pending_invite
     else
       return create(args)
@@ -23,5 +25,11 @@ class PendingInvite < Ohm::Model
     Invite.create(user: user, trip: trip)
 
     delete
+  end
+
+private
+
+  def validate
+    assert_present :trip_id
   end
 end
