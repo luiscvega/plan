@@ -27,19 +27,19 @@ a { text-decoration: none; }
 #current-invite .label h6 { margin: 0px; }
 #current-invite .label { margin-bottom: 5px; }
 
-#thoughts .item {
+.thoughts .item {
   width: 306px;
   margin-bottom: 10px;
 }
 
-#thoughts .label.going, img.going { background-color: #2ecc71; }
-#thoughts .label.pending, img.pending { background-color: #f1c40f; }
-#thoughts .label.not-going, img.not-going { background-color: #e74c3c; }
+.thoughts .label.going, img.going { background-color: #2ecc71; }
+.thoughts .label.pending, img.pending { background-color: #f1c40f; }
+.thoughts .label.not-going, img.not-going { background-color: #e74c3c; }
 
-#thoughts .label h6 { margin: 0px; }
-#thoughts .label { margin-bottom: 5px; }
+.thoughts .label h6 { margin: 0px; }
+.thoughts .label { margin-bottom: 5px; }
 
-#thoughts .well {
+.thoughts .well {
   margin-bottom: 0px;
 }
 
@@ -83,3 +83,20 @@ a { text-decoration: none; }
 
 .brand { font-family: lobster; }
 
+#filter {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+#filter ul {
+  display: inline-block;
+  margin: 0px;
+}
+
+.nav-pills li.active a {
+  background-color: #9b59b6;
+}
+
+.nav-pills li.active a:hover {
+  background-color: #9b59b6;
+}

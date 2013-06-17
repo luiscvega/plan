@@ -13,6 +13,8 @@ class Invite < Ohm::Model
   reference :trip, :Trip
   reference :user, :User
 
+  index :status
+
   def going?; status == GOING; end
   def not_going?; status == NOT_GOING; end
   def pending?; status == PENDING; end

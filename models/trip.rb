@@ -30,4 +30,28 @@ class Trip < Ohm::Model
     [*invite_thoughts, *pending_invite_thoughts]
   end
 
+  def going_thoughts
+    invites.find(status: Invite::GOING).map do |invite|
+      Thought.new(invite)
+    end
+  end
+
+  def not_going_thoughts
+    invites.find(status: Invite::NOT_GOING).map do |invite|
+      Thought.new(invite)
+    end
+  end
+
+  def pending_thoughts
+    pending_invite_thoughts_1 = invites.find(status: Invite::PENDING).map do |invite|
+      Thought.new(invite)
+    end
+
+    pending_invite_thoughts_2 = pending_invites.map do |pending_invite|
+      Thought.new(pending_invite)
+    end
+
+    [*pending_invite_thoughts_1, *pending_invite_thoughts_2]
+  end
+
 end

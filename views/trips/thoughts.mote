@@ -1,0 +1,29 @@
+<h1 class="text-center">Everyone</h1>
+<div class="thoughts">
+  % thoughts.to_a.shuffle.each do |invite|
+  <div class="item">
+    <div class="well well-small">
+      <div class="media">
+        <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(invite.status) }}"
+             src="{{ invite.img_url }}">
+        <div class="media-body">
+          <span class="label {{ this.img_color(invite.status) }}"><h6 class="media-heading">{{ invite.full_name }} {{ this.status_sign(invite.status) }}</h6></span>
+          % if invite.status == Invite::GOING
+            <div class="thought-bubble">
+              <p>{{ invite.text }}</p>
+            </div>
+          % elsif invite.status == Invite::NOT_GOING
+            <div class="thought-bubble">
+              <p>{{ invite.text }}</p>
+            </div>
+          % elsif invite.status == Invite::PENDING
+            <div class="pending-options">
+              <i class="icon-question-sign icon-3x"></i>
+            </div>
+          % end
+        </div>
+      </div>
+    </div>
+  </div>
+  % end
+</div>
