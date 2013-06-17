@@ -22,7 +22,7 @@ Cuba.use Rack::Session::Cookie,
   secret: "8aa0a37e4342310afdedd3a7407c6ee5fceb5d0b"
 
 Cuba.use Rack::Protection,
-  except: [:http_origin, :frame_options]
+  except: [:http_origin, :frame_options, :remote_token]
 
 Cuba.use Rack::Static,
   urls: %w[/js /css /img],
