@@ -64,6 +64,14 @@ module Routes
         if user = service.create
           authenticate(user)
 
+          pending_invites = PendingInvite.find(fb_id: user.fb_id)
+
+          if pending_invites.any?
+            pending_invites.each do |pending_invite|
+              pending_invite.register(current_user)
+            end
+          end
+
           res.redirect "/"
         else
           guest_render "index"
