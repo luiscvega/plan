@@ -8,8 +8,12 @@ a { text-decoration: none; }
 
 #summary .well {
   margin: auto;
-  width: 600px;
+  width: 500px;
 }
+
+#summary .thought-bubble { padding: 10px; }
+#summary h4 { text-align: center; }
+#summary dl { margin-bottom: 0; }
 
 #current-invite {
   margin: auto;
@@ -61,7 +65,7 @@ a { text-decoration: none; }
 }
 
 .pending-options i {
-  color: #f1c40f;
+  color: #bdc3c7;
 }
 
 #thoughts-modal .well {
@@ -76,3 +80,6 @@ a { text-decoration: none; }
 #thoughts-modal textarea {
   width: 500px;
 }
+
+.brand { font-family: lobster; }
+

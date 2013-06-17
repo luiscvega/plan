@@ -3,8 +3,8 @@
     <div class="invite-box media">
       <img class="media-object img-polaroid img-rounded pull-left" src="{{ trip.creator.img_url }}">
       <div class="media-body">
-        <h4 class="media-heading">{{ trip.creator.full_name }} is planning a trip called "{{ trip.name }}"</h4>
         <div class="thought-bubble">
+          <h4 class="media-heading">{{ trip.creator.full_name }} is planning a trip called "{{ trip.name }}"</h4>
           <dl class="dl-horizontal">
             <dt>Destination<dt>
             <dd>{{ trip.destination}}</dd>
@@ -19,8 +19,8 @@
 
 <br />
 
-<div id="invite-via-facebook">
-  <a class="btn"
+<div class="text-center">
+  <a class="btn btn-info"
     href="https://www.facebook.com/dialog/apprequests?
     app_id={{ Settings::FB_APP_ID }}&
     message={{ message }}&
@@ -49,7 +49,10 @@
         <img class="media-object img-polaroid img-rounded pull-left {{ this.img_color(this.current_invite.status) }}"
              src="{{ this.current_invite.user.img_url }}">
         <div class="media-body">
-          <span class="label {{ this.img_color(this.current_invite.status) }}"><h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6></span>
+          <span class="label {{ this.img_color(this.current_invite.status) }}">
+            <h6 class="media-heading">{{ this.current_invite.user.full_name }} {{ this.status_sign(this.current_invite.status) }}</h6>
+          </span>
+
           <a href="#thoughts-modal" data-toggle="modal">Edit</a>
 
           % if this.current_invite.status == Invite::GOING
@@ -62,7 +65,7 @@
             </div>
           % elsif this.current_invite.status == Invite::PENDING
             <div class="pending-options">
-              <a href="#thoughts-modal" data-toggle="modal"><i class="icon-question-sign icon-3x"></i></a>
+              <a href="#thoughts-modal" class="btn btn-block" data-toggle="modal">What do you think?</a>
             </div>
           % end
         </div>

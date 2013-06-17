@@ -1,9 +1,13 @@
 module Routes
   class Register < Cuba
     define do
-      on "facebook", param("code") do |code|
-        #If user clicks "Login with Facebook", they will ALWAYS be redirected here!
 
+      on "facebook/canvas" do
+        guest_render "index"
+      end
+
+      #If user clicks "Login with Facebook", they will ALWAYS be redirected here!
+      on "facebook", param("code") do |code|
         break unless access_token = Koala::Facebook::OAuth.new(
           Settings::FB_APP_ID, Settings::FB_APP_SECRET,
           Settings::HOST + "/register/facebook/"
@@ -41,24 +45,21 @@ module Routes
           service = CreateUser.new({
             first_name: me["first_name"],
             last_name: me["last_name"],
-            email: me["email"],
-            fb_id: me["id"]
+            email: me["email"]
           })
 
-          if PendingUser.find(fb_id: me["id"]).first
-            pending_user_id = PendingUser.find(fb_id: me["id"]).first.id 
-          end
-
           session[:fb_id] = me["id"]
-          session[:fb_access_token] = access_token
-          session[:pending_user_id] = pending_user_id
 
-          guest_render "register/new", service: service
+          guest_render "signup", service: service
         end
       end
 
       on post, "signup", param("user") do |dict|
         service = CreateUser.new(dict)
+
+        if fb_id = session.delete("fb_id")
+          service.fb_id = fb_id
+        end
 
         if user = service.create
           authenticate(user)

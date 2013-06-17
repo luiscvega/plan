@@ -1,12 +1,31 @@
-<h1>Login</h1>
+<!--/register/login?user=...-->
+<form class="form text-center" method="POST" action="/login">
+  <fieldset>
+    <h1>We're glad you're here!</h1>
+    <div class="control-group">
+      <div class="controls">
+        <input type="text" name="email" id="user_email" placeholder="E-mail">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="password" name="password" id="user_password" placeholder="Password">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <p><button type="submit" class="btn btn-primary">Log In</button></p>
 
-<form action="/login" method="POST">
-  <label for="email">Email</label>
-  <input type="text" name="email" id="email" />
+        <p>or</p>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" />
-
-  <button type="submit">Login</button>
+        <p><a href="https://graph.facebook.com/oauth/authorize?client_id={{ Settings::FB_APP_ID }}&redirect_uri={{ Settings::HOST }}/register/facebook/&scope=publish_stream,email"
+          class="btn btn-info">
+          <i class="icon-facebook-sign"></i>
+          Log In With Facebook
+        </a></p>
+        <p><a href="/password/help"><u>Forgot Your Password?</u></a></p>
+      </div >
+    </div>
+  </fieldset>
 </form>
 

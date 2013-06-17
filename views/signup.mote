@@ -1,40 +1,131 @@
-<h1>Sign Up</h1>
-<form action="/register/signup" method="POST"
-  accept-charset="utf-8">
-  <fieldset>
-    <div class="control-group">
-      <div class="controls">
-        <input type="text" name="user[first_name]" id="user_first_name"
-          placeholder="First Name" value="{{ service.first_name }}">
+% if this.session[:fb_id]
+
+  <br />
+
+  <!--/register/facebook?user=...-->
+  <!--or-->
+  <!--/register/facebook?user=...&pending_user_id=...-->
+  <div class="row">
+    <div class="span6">
+      <form class="well well-small form-horizontal" action="/register/signup"
+        method="POST" accept-charset="utf-8">
+        <div class="text-center alert alert-info">
+          <h4>Create a Tripkada Account</h4>
+          <p>Complete your sign-up by linking your Facebook account with your Tripkada account.</p>
+        </div>
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="user_first_name">First Name</label>
+            <div class="controls">
+              <input type="text" name="user[first_name]" value="{{ service.first_name }}"
+                id="user_first_name">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="user_last_name">Last Name</label>
+            <div class="controls">
+              <input type="text" name="user[last_name]" value="{{ service.last_name }}"
+                id="user_last_name">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="user_email">Email</label>
+            <div class="controls">
+              <input type="text" name="user[email]" value="{{ service.email }}"
+                id="user_email">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="user_password">Password</label> 
+            <div class="controls">
+              <input type="password" name="user[password]" id="input" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="user_confirm_password">Confirm Password</label>
+            <div class="controls">
+              <input type="password" name="user[confirm_password]" placeholder="Confirm Password">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </fieldset>
+      </form>
+    </div> <!-- span6 -->
+
+    <div class="span6">
+      <form class="well well-small form-horizontal" action="/login"
+        method="POST" accept-charset="utf-8">
+        <div class="text-center alert alert-info">
+          <h4>Already have a Tripkada account?</h4>
+          <p>Link your Facebook account with your Tripkada account by logging in.</p>
+        </div>
+        <fieldset>
+
+          <div class="control-group">
+            <label class="control-label" for="user_email">Email</label>
+            <div class="controls">
+              <input type="text" name="email" placeholder="Email" />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="user_password">Password</label>
+            <div class="controls">
+              <input type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Log In</button>
+          </div>
+        </fieldset>
+      </form>
+    </div> <!-- span6 -->
+  </div>
+
+% else
+
+  <h1>Sign Up</h1>
+  <form action="/register/signup" method="POST" accept-charset="utf-8">
+    <fieldset>
+      <div class="control-group">
+        <div class="controls">
+          <input type="text" name="user[first_name]" id="user_first_name"
+            placeholder="First Name" value="{{ service.first_name }}">
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <!--<label class="control-label" for="user_last_name">Last Name</label> -->
-      <div class="controls">
-        <input type="text" name="user[last_name]" id="user_last_name"
-          placeholder="Last Name" value="{{ service.last_name }}">
+      <div class="control-group">
+        <!--<label class="control-label" for="user_last_name">Last Name</label> -->
+        <div class="controls">
+          <input type="text" name="user[last_name]" id="user_last_name"
+            placeholder="Last Name" value="{{ service.last_name }}">
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input type="text" name="user[email]" id="user_email"
-          placeholder="E-mail" value="{{ service.email }}">
+      <div class="control-group">
+        <div class="controls">
+          <input type="text" name="user[email]" id="user_email"
+            placeholder="E-mail" value="{{ service.email }}">
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input type="password" name="user[password]" id="user_password"
-          placeholder="Password">
+      <div class="control-group">
+        <div class="controls">
+          <input type="password" name="user[password]" id="user_password"
+            placeholder="Password">
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input type="password" name="user[confirm_password]" id="user_confirm_password"
-          placeholder="Confirm Password">
+      <div class="control-group">
+        <div class="controls">
+          <input type="password" name="user[confirm_password]" id="user_confirm_password"
+            placeholder="Confirm Password">
+        </div>
       </div>
-    </div>
-    <div class="form-actions">
-      <button type="submit" class="btn">Sign Up</button>
-    </div>
-  </fieldset>
-</form>
+      <div class="form-actions">
+        <button type="submit" class="btn">Sign Up</button>
+      </div>
+    </fieldset>
+  </form>
+% end

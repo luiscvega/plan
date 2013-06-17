@@ -1,7 +1,6 @@
 class CreateUser < Scrivener
   attr_accessor :email, :first_name, :last_name,
-                :password, :confirm_password,
-                :pending_user_id
+                :password, :confirm_password, :fb_id
 
   def validate
     assert_email(:email) && assert_unique(User, :email)
@@ -18,7 +17,8 @@ class CreateUser < Scrivener
       first_name: first_name,
       last_name: last_name,
       password: password,
-      email: email
+      email: email,
+      fb_id: fb_id
     )
   end
 end
