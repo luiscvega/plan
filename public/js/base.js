@@ -4,8 +4,7 @@ $(function() {
   $containers.each(function(index, container) {
     $(container).imagesLoaded(function() {
       $(container).masonry({
-        itemSelector: ".item",
-        gutter: 10
+        itemSelector: ".item"
       });
     });
   });
@@ -25,8 +24,7 @@ $(function() {
 
     $container.imagesLoaded(function() {
       $container.masonry({
-        itemSelector: ".item",
-        gutter: 10
+        itemSelector: ".item"
       });
     });
   });

@@ -28,8 +28,8 @@ a { text-decoration: none; }
 #current-invite .label { margin-bottom: 5px; }
 
 .thoughts .item {
-  width: 32.6%;
-  margin-bottom: 10px;
+  width: calc(33.33333333% - 10px);
+  padding: 5px;
 }
 
 .thoughts .label.going, img.going { background-color: #2ecc71; }

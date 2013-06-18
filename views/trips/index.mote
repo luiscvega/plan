@@ -31,7 +31,7 @@
     redirect_uri=http://tripkada.com/trips/{{ trip.id }}/invites"
     {{ "disabled" unless this.current_user.fb_linked? }}>
     <i class="icon-facebook-sign"></i>
-    Invite Friends via Facebook
+    Ask your friends!
   </a>
 
   % unless this.current_user.fb_linked?
