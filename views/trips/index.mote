@@ -116,6 +116,7 @@
   <div class="span3" id="filter">
     <select>
       <option value="#everyone-pane">Everyone</option>
+      <option value="#everyone-with-thoughts-pane">Everyone With Thoughts</option>
       <option value="#going-pane">Going</option>
       <option value="#not-going-pane">Not Going</option>
       <option value="#waiting-pane">Waiting</option>
@@ -127,6 +128,10 @@
   <div class="tab-content">
     <div class="tab-pane active" id="everyone-pane">
       {{ this.partial "trips/thoughts", thoughts: trip.thoughts }}
+    </div>
+
+    <div class="tab-pane" id="everyone-with-thoughts-pane">
+      {{ this.partial "trips/thoughts", thoughts: trip.active_thoughts }}
     </div>
 
     <div class="tab-pane" id="going-pane">
